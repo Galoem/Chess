@@ -1,6 +1,7 @@
 package com.github.Galoem.Chess;
 
 import com.github.Galoem.Chess.model.Board;
+import com.github.Galoem.Chess.view.Printer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -11,6 +12,8 @@ public class ChessApplication {
 		SpringApplication.run(ChessApplication.class, args);
 
 		Board board = new Board();
+		Printer printer = new Printer();
+		printer.printBoard(board);
 	}
 
 }

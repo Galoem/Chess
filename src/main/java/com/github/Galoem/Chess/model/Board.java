@@ -2,8 +2,12 @@ package com.github.Galoem.Chess.model;
 
 import lombok.Data;
 
-import static com.github.Galoem.Chess.model.Piece.Category.*;
 import static com.github.Galoem.Chess.model.Piece.Category.BISHOP;
+import static com.github.Galoem.Chess.model.Piece.Category.KING;
+import static com.github.Galoem.Chess.model.Piece.Category.KNIGHT;
+import static com.github.Galoem.Chess.model.Piece.Category.PAWN;
+import static com.github.Galoem.Chess.model.Piece.Category.QUEEN;
+import static com.github.Galoem.Chess.model.Piece.Category.ROOK;
 import static com.github.Galoem.Chess.model.Piece.Color.BLACK;
 import static com.github.Galoem.Chess.model.Piece.Color.WHITE;
 
@@ -13,10 +17,10 @@ public class Board {
     public static final int BOARD_HEIGHT = 8;
     public static final int BOARD_WIDTH = 8;
 
-    private Piece[][] board;
+    private Piece[][] pieces;
 
     public Board() {
-        board = new Piece[BOARD_HEIGHT][BOARD_WIDTH];
+        pieces = new Piece[BOARD_HEIGHT][BOARD_WIDTH];
         // set Pawns
         for (int i = 0; i < BOARD_WIDTH; i++) {
             setBoardPosition(new Position(1, i), new Piece(PAWN, WHITE));
@@ -46,11 +50,11 @@ public class Board {
     }
 
     public void setBoardPosition(Position position, Piece piece) {
-        board[position.yPos()][position.xPos()] = piece;
+        pieces[position.yPos()][position.xPos()] = piece;
     }
 
     public Piece getBoardPosition(Position position) {
-        return board[position.yPos()][position.xPos()];
+        return pieces[position.yPos()][position.xPos()];
     }
 
 }
